@@ -1,0 +1,16 @@
+<div *ngIf="!getBugsError">
+  <div ng-if="retrievedBugs && !bugs">
+    <h2>Great news! There aren't any open bugs right now.</h2>
+  </div>
+  <div *ngIf="retrivedBugs && bugs">
+    <ul class="bugs">
+      <li *ngFor="let bug of bugs" class="bug">
+        {{bug.title}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="getBugsError">
+  Oops! An error occurred when retrieving bugs. Please try again by hitting the search button or trying again later.
+</div>

@@ -18,5 +18,7 @@ namespace BugTracker.DataAccess.Models
         public string Description { get; set; }
         
         public DateTime CreatedDateUtc { get; set; }
-    }
+
+		public bool IsOpen { get; set; }
+	}
 }

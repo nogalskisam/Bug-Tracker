@@ -1,5 +1,10 @@
-﻿using System;
+﻿using BugTracker.DataAccess.Models;
+using Dapper;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -7,9 +12,21 @@ namespace BugTracker.DataAccess.Repositories
 {
     public class BugRepository : IBugRepository
     {
-        public Task GetBugs(bool open)
+		private readonly string _connectionString;
+
+		public BugRepository(IConfiguration configuration)
+		{
+			_connectionString = configuration.GetConnectionString("defaultConnection");
+		}
+
+        public async Task<List<Bug>> GetBugs(bool open = true)
         {
-            throw new NotImplementedException();
+			using (var connection = new SqlConnection(_connectionString))
+			{
+				var bugs = await connection.QueryAsync<Bug>("SELECT * FROM Bugs WHERE IsOpen = @IsOpen", new { IsOpen = open });
+
+				return bugs.ToList();
+			}
         }
     }
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Site", "BugTracker.Site\BugTracker.Site.csproj", "{59979237-D541-40E0-AD4A-3325D9260E28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Site", "BugTracker.Site\BugTracker.Site.csproj", "{59979237-D541-40E0-AD4A-3325D9260E28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.DataAccess", "BugTracker.DataAccess\BugTracker.DataAccess.csproj", "{D67D724E-21C5-4606-BA69-F1B967B4F1D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.DataAccess", "BugTracker.DataAccess\BugTracker.DataAccess.csproj", "{D67D724E-21C5-4606-BA69-F1B967B4F1D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
