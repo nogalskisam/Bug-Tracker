@@ -25,47 +25,6 @@ namespace BugTracker.Site
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-      //  public void ConfigureServices(IServiceCollection services)
-      //  {
-      //      services.Configure<CookiePolicyOptions>(options =>
-      //      {
-      //          // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-      //          options.CheckConsentNeeded = context => true;
-      //          options.MinimumSameSitePolicy = SameSiteMode.None;
-      //      });
-
-      //      var connection = @"Server=localhost;Database=BugTracker;Trusted_Connection=True;";
-      //      services.AddDbContext<BugTrackerContext>
-      //          (options => options.UseSqlServer(connection));
-
-
-      //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-      //  }
-
-      //  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-      //  public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-      //  {
-      //      if (env.IsDevelopment())
-      //      {
-      //          app.UseDeveloperExceptionPage();
-      //      }
-      //      else
-      //      {
-      //          app.UseExceptionHandler("/Home/Error");
-      //      }
-
-      //      app.UseStaticFiles();
-      //      app.UseCookiePolicy();
-
-      //      //app.UseMvc(routes =>
-      //      //{
-      //      //    routes.MapRoute(
-      //      //        name: "default",
-      //      //        template: "{controller=Home}/{action=Index}/{id?}");
-      //      //});
-      //  }
-
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddTransient<IBugService, BugService>();
@@ -97,14 +56,6 @@ namespace BugTracker.Site
 
 			app.UseDefaultFiles();
 			app.UseStaticFiles();
-
-			//if (env.IsDevelopment())
-			//{
-			//	app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-			//	app.UseDeveloperExceptionPage();
-			//}
-
-			//app.UseMvc();
 		}
 	}
 }

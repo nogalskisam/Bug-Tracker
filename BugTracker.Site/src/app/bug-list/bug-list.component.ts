@@ -4,8 +4,7 @@ import { Bug } from '../models/bug.model';
 
 @Component({
   selector: 'app-bug-list',
-  templateUrl: './bug-list.component.html',
-  styleUrls: ['./bug-list.component.css']
+  templateUrl: './bug-list.component.html'
 })
 export class BugListComponent implements OnInit {
   public bugs: Bug[];

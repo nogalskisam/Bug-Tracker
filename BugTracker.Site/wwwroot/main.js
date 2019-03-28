@@ -168,17 +168,6 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/bug-list/bug-list.component.css":
-/*!*************************************************!*\
-  !*** ./src/app/bug-list/bug-list.component.css ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2J1Zy1saXN0L2J1Zy1saXN0LmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
 /***/ "./src/app/bug-list/bug-list.component.html":
 /*!**************************************************!*\
   !*** ./src/app/bug-list/bug-list.component.html ***!
@@ -228,8 +217,7 @@ var BugListComponent = /** @class */ (function () {
     BugListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-bug-list',
-            template: __webpack_require__(/*! ./bug-list.component.html */ "./src/app/bug-list/bug-list.component.html"),
-            styles: [__webpack_require__(/*! ./bug-list.component.css */ "./src/app/bug-list/bug-list.component.css")]
+            template: __webpack_require__(/*! ./bug-list.component.html */ "./src/app/bug-list/bug-list.component.html")
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_bug_service__WEBPACK_IMPORTED_MODULE_2__["BugService"]])
     ], BugListComponent);
