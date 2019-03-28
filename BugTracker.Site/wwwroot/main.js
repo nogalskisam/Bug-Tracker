@@ -36,10 +36,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _create_bug_create_bug_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./create-bug/create-bug.component */ "./src/app/create-bug/create-bug.component.ts");
 
 
 
-var routes = [];
+
+var routes = [
+    { path: 'create', component: _create_bug_create_bug_component__WEBPACK_IMPORTED_MODULE_3__["CreateBugComponent"] }
+];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
@@ -74,7 +78,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <app-bug-list></app-bug-list>\n</div>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <h1>\r\n    {{ title }}\r\n  </h1>\r\n</div>\r\n\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -136,6 +140,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _bug_list_bug_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./bug-list/bug-list.component */ "./src/app/bug-list/bug-list.component.ts");
 /* harmony import */ var _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../node_modules/@angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _create_bug_create_bug_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./create-bug/create-bug.component */ "./src/app/create-bug/create-bug.component.ts");
+/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/dropdown/fesm5/ngx-bootstrap-dropdown.js");
+/* harmony import */ var ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/tooltip */ "./node_modules/ngx-bootstrap/tooltip/fesm5/ngx-bootstrap-tooltip.js");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+
+
+
+
 
 
 
@@ -150,12 +162,16 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _bug_list_bug_list_component__WEBPACK_IMPORTED_MODULE_5__["BugListComponent"]
+                _bug_list_bug_list_component__WEBPACK_IMPORTED_MODULE_5__["BugListComponent"],
+                _create_bug_create_bug_component__WEBPACK_IMPORTED_MODULE_7__["CreateBugComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
+                _node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+                ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_8__["BsDropdownModule"].forRoot(),
+                ngx_bootstrap_tooltip__WEBPACK_IMPORTED_MODULE_9__["TooltipModule"].forRoot(),
+                ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__["ModalModule"].forRoot()
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -175,7 +191,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!getBugsError\">\n  <div ng-if=\"retrievedBugs && !bugs\">\n    <h2>Great news! There aren't any open bugs right now.</h2>\n  </div>\n  <div *ngIf=\"retrivedBugs && bugs\">\n    <ul class=\"bugs\">\n      <li *ngFor=\"let bug of bugs\" class=\"bug\">\n        {{bug.title}}\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div *ngIf=\"getBugsError\">\n  Oops! An error occurred when retrieving bugs. Please try again by hitting the search button or trying again later.\n</div>"
+module.exports = "<div *ngIf=\"!getBugsError\">\r\n  <div ng-if=\"retrievedBugs && !bugs\">\r\n    <h2>Great news! There aren't any open bugs right now.</h2>\r\n  </div>\r\n  <div *ngIf=\"retrivedBugs && bugs\">\r\n    <ul class=\"bugs\">\r\n      <li *ngFor=\"let bug of bugs\" class=\"bug\">\r\n        {{bug.title}}\r\n      </li>\r\n    </ul>\r\n  </div>\r\n</div>\r\n\r\n<div *ngIf=\"getBugsError\">\r\n  Oops! An error occurred when retrieving bugs. Please try again by hitting the search button or trying again later.\r\n</div>"
 
 /***/ }),
 
@@ -222,6 +238,65 @@ var BugListComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_bug_service__WEBPACK_IMPORTED_MODULE_2__["BugService"]])
     ], BugListComponent);
     return BugListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/create-bug/create-bug.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/create-bug/create-bug.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NyZWF0ZS1idWcvY3JlYXRlLWJ1Zy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/create-bug/create-bug.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/create-bug/create-bug.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Create new bug</h1>\n<h3>Please fill in the form below to create a new bug in the tracker</h3>\n\n<div class=\"form-group\">\n  <label for=\"title\">Title</label>\n  <input [(ngModel)]=\"title\" type=\"text\" class=\"form-control\" id=\"title\" aria-describedby=\"title-help\" placeholder=\"Title\">\n  <small id=\"title-help\" class=\"form-text text-muted\">A short overview of what the bug is. Max 100 characters.</small>\n</div>\n<div class=\"form-group\">\n  <label for=\"description\">Description</label>\n  <textarea [(ngModel)]=\"description\" type=\"text\" class=\"form-control\" id=\"description\" placeholder=\"Description\" aria-describedby=\"description-help\">\n  <small id=\"description-help\" class=\"form-text text-muted\">A more in-depth description of the bug. Max 2000 characters.</small>\n</div>\n<button (click)=\"createBug()\" class=\"btn btn-primary\">Submit</button>"
+
+/***/ }),
+
+/***/ "./src/app/create-bug/create-bug.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/create-bug/create-bug.component.ts ***!
+  \****************************************************/
+/*! exports provided: CreateBugComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateBugComponent", function() { return CreateBugComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CreateBugComponent = /** @class */ (function () {
+    function CreateBugComponent() {
+    }
+    CreateBugComponent.prototype.ngOnInit = function () {
+    };
+    CreateBugComponent.prototype.createBug = function () {
+        // redirect to list page
+    };
+    CreateBugComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-create-bug',
+            template: __webpack_require__(/*! ./create-bug.component.html */ "./src/app/create-bug/create-bug.component.html"),
+            styles: [__webpack_require__(/*! ./create-bug.component.css */ "./src/app/create-bug/create-bug.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], CreateBugComponent);
+    return CreateBugComponent;
 }());
 
 

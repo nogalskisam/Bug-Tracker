@@ -1,0 +1,14 @@
+<h1>Create new bug</h1>
+<h3>Please fill in the form below to create a new bug in the tracker</h3>
+
+<div class="form-group">
+  <label for="title">Title</label>
+  <input [(ngModel)]="title" type="text" class="form-control" id="title" aria-describedby="title-help" placeholder="Title">
+  <small id="title-help" class="form-text text-muted">A short overview of what the bug is. Max 100 characters.</small>
+</div>
+<div class="form-group">
+  <label for="description">Description</label>
+  <textarea [(ngModel)]="description" type="text" class="form-control" id="description" placeholder="Description" aria-describedby="description-help">
+  <small id="description-help" class="form-text text-muted">A more in-depth description of the bug. Max 2000 characters.</small>
+</div>
+<button (click)="createBug()" class="btn btn-primary">Submit</button>
