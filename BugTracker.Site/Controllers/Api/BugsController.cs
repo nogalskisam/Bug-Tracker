@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using BugTracker.DataAccess.Models;
+using BugTracker.DataAccess.Requests;
 using BugTracker.Site.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,23 +48,27 @@ namespace BugTracker.Site.Controllers.Api
 				return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
 			}
         }
-
-        // POST api/<controller>
+		
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]CreateBugRequest request)
         {
-        }
+			try
+			{
+				var result = await _bugService.CreateBug(request);
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+				if (!result)
+				{
+					// should probably tell why it failed?
+					return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+				}
 
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+				return Ok();
+			}
+			catch (Exception)
+			{
+				// Do logging
+				return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+			}
+		}
     }
 }

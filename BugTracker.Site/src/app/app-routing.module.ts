@@ -5,6 +5,7 @@ import { CreateBugComponent } from './create-bug/create-bug.component';
 import { BugListComponent } from './bug-list/bug-list.component';
 
 const routes: Routes = [
+  { path: '', component: BugListComponent },
   { path: 'create', component: CreateBugComponent }
 ];
 

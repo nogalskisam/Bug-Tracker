@@ -1,5 +1,6 @@
 using BugTracker.DataAccess.Models;
 using BugTracker.DataAccess.Repositories;
+using BugTracker.DataAccess.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,12 @@ namespace BugTracker.Site.Services
 
             return response;
         }
+
+		public async Task<bool> CreateBug(CreateBugRequest request)
+		{
+			var response = await _bugRepository.CreateBug(request);
+
+			return response;
+		}
     }
 }

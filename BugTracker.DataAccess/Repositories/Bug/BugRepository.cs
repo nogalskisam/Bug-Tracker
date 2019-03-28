@@ -1,4 +1,5 @@
 ﻿using BugTracker.DataAccess.Models;
+using BugTracker.DataAccess.Requests;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -27,6 +28,26 @@ namespace BugTracker.DataAccess.Repositories
 
 				return bugs.ToList();
 			}
+        }
+
+        public async Task<bool> CreateBug(CreateBugRequest request)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var data = new
+                {
+                    Id = Guid.NewGuid(),
+                    Title = request.Title,
+                    Description = request.Description,
+                    CreatedDateUtc = DateTime.UtcNow,
+                    IsOpen = true
+                };
+
+                var result = await connection.ExecuteAsync("INSERT INTO Bugs (Id, Title, Description, CreatedDateUtc, IsOpen)" +
+                                                                        "VALUES (@Id, @Title, @Description, @CreatedDateUtc, @IsOpen)", data);
+
+                return (result > 0);                
+            }       
         }
     }
 }

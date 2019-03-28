@@ -1,4 +1,5 @@
 ﻿using BugTracker.DataAccess.Models;
+using BugTracker.DataAccess.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,5 +10,7 @@ namespace BugTracker.DataAccess.Repositories
     public interface IBugRepository
     {
         Task<List<Bug>> GetBugs(bool open);
+
+        Task<bool> CreateBug(CreateBugRequest request);
     }
 }
