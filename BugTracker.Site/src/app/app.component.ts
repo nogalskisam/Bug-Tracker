@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'BugTrackerSite';
+  public title = 'Bug Tracker';
   public apiAvailability: boolean = false;
   private apiUri: string;
 

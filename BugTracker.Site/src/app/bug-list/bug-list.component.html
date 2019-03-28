@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngIf="!getBugsError">
+    <div *ngIf="retrievedBugs && !bugs">
+      <h2>Great news! There aren't any open bugs right now.</h2>
+    </div>
+    <div *ngIf="retrievedBugs && bugs">
+      <h3>Open Bugs</h3>
+      <ul class="bugs">
+        <li *ngFor="let bug of bugs" class="bug">
+          {{bug.title}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngIf="getBugsError">
+    Oops! An error occurred when retrieving bugs. Please try again later.
+  </div>
+</div>

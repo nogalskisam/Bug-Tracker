@@ -29,6 +29,8 @@ namespace BugTracker.DataAccess.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(2000);
 
+                    b.Property<bool>("IsOpen");
+
                     b.Property<string>("Title")
                         .HasMaxLength(100);
 
